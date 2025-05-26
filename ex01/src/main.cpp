@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:33:55 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/24 16:30:57 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/05/26 15:39:00 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,20 @@ int main()
 
 	SEPARATOR("Test with int array")
 	int intArray[] = {1, 2, 3, 4, 5};
-	iter(intArray, 5, printArray<int>);
+	std::cout << " * ";
+	iter(intArray, 5, printElementOfArray<int>);
 	std::cout << std::endl;
 
 	SEPARATOR("Test with float array")
 	float floatArray[] = {1.1f, 2.2f, 3.3f};
-	iter(floatArray, 3, printArray<float>);
+	std::cout << " * ";
+	iter(floatArray, 3, printElementOfArray<float>);
 	std::cout << std::endl;
 
 	SEPARATOR("Test with std::string array")
+	std::cout << " * ";
 	std::string strArray[] = {"42", "Porto", "Piscine", "C++"};
-	iter(strArray, 4, printArray<std::string>);
+	iter(strArray, 4, printElementOfArray<std::string>);
 	std::cout << std::endl;
 
 	std::cout << BGRN "\n\n✅ All tests complete!\n\n" RESET;
