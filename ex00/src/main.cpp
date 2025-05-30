@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:33:55 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/30 21:16:18 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/05/30 21:26:18 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 << "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" RESET "\n" << std::endl;
 
 //Functions Prototype
-void TestSubjectCase();
-void TestInt();
-void TestString();
-void TestDouble();
-void TestChar();
+void testSubjectCase();
+void testInt();
+void testString();
+void testDouble();
+void testChar();
 
 /**
  * main tests the swap, min, and max functions with various types.
@@ -43,11 +43,11 @@ int main()
 {
 	std::cout << BGRN "\n\n📋===== SWAP, MIN, MAX W/TEMPLATES =====📋\n\n" RESET;
 
-	TestSubjectCase();
-	TestInt();
-	TestString();
-	TestDouble();
-	TestChar();
+	testSubjectCase();
+	testInt();
+	testString();
+	testDouble();
+	testChar();
 
 	SEPARATOR("MIXED TYPE TEST (COMMENTED)")
 	/*
@@ -70,7 +70,7 @@ int main()
  * variables. The test case checks that the functions work correctly with both
  * arguments being greater than, less than, or equal to each other.
  */
-void TestSubjectCase()
+void testSubjectCase()
 {
 	SEPARATOR("SUBJECT TEST")
 
@@ -98,7 +98,7 @@ void TestSubjectCase()
  * The test case tests that the functions work correctly with both arguments
  * being greater than, less than, or equal to each other.
  */
-void TestInt()
+void testInt()
 {
 	SEPARATOR("INT TEST")
 
@@ -120,7 +120,7 @@ void TestInt()
  * minimum and maximum of the two strings. The minimum and maximum
  * are determined by the lexicographical order of the strings.
  */
-void TestString()
+void testString()
 {
 	SEPARATOR("STRING TEST")
 
@@ -142,7 +142,7 @@ void TestString()
  * and that the min and max functions can be used to get the minimum and maximum
  * of two double values.
  */
-void TestDouble()
+void testDouble()
 {
 	SEPARATOR("DOUBLE TEST")
 
@@ -162,7 +162,7 @@ void TestDouble()
  * and then determines and prints the minimum and maximum values
  * between the two characters.
  */
-void TestChar()
+void testChar()
 {
 	SEPARATOR("CHAR TEST")
 

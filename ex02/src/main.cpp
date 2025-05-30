@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:33:55 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/26 21:10:36 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/05/30 21:33:27 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,21 @@ void testConstCorrectness();
 // ─────────────────────────────────────────────────────────────
 // 🚀 main()
 // ─────────────────────────────────────────────────────────────
+
+/**
+ * main function executes a series of tests on the Array class template.
+ *
+ * It evaluates the functionality of the Array class by calling several test
+ * functions, each targeting specific features such as copy constructor,
+ * assignment operator, index operator, handling of integer and string arrays,
+ * and managing edge cases like empty arrays, out-of-bounds access, and large
+ * arrays. Additionally, it tests custom types and verifies const correctness.
+ *
+ * Exceptions are caught and handled to ensure that memory allocation failures
+ * and unhandled exceptions are reported.
+ *
+ * The program prints the results of the tests and exits with a return code of 0.
+ */
 int main()
 {
 	std::cout << BGRN "\n\n📋===== CLASS W/TEMPLATES =====📋\n\n" RESET;
@@ -71,6 +86,13 @@ int main()
 // 🔧 Funções auxiliares - Implementação
 // ─────────────────────────────────────────────────────────────
 
+/**
+ * testCopyConstructor tests the copy constructor of the Array class.
+ *
+ * It creates an original array, then creates a copy of it using the copy
+ * constructor. The contents of both arrays are printed to verify that the copy
+ * contains the same elements in the same order as the original.
+ */
 void testCopyConstructor()
 {
 	SEPARATOR("Copy constructor test");
@@ -85,6 +107,13 @@ void testCopyConstructor()
 	std::cout << copy;
 }
 
+/**
+ * Tests the assignment operator of the Array class.
+ *
+ * This test initializes an array 'a' with integer values and assigns it to
+ * another array 'b' using the assignment operator. It then prints both
+ * arrays to verify that 'b' contains the same elements as 'a' in the same order.
+ */
 void testAssignmentOperator()
 {
 	SEPARATOR("Assignment operator test");
@@ -100,6 +129,15 @@ void testAssignmentOperator()
 	std::cout << b;
 }
 
+/**
+ * Tests the index operator of the Array class.
+ *
+ * This test initializes an array of 5 elements and prints it out.
+ * It then changes the third element and prints the array out again.
+ * Additionally, it tests the read-only const version of the index operator
+ * by attempting to access an element and then attempting to access an out-of-bounds
+ * index, which should throw an exception.
+ */
 void testOperatorIndex()
 {
 	SEPARATOR("Operator[] test");
@@ -128,11 +166,18 @@ void testOperatorIndex()
 		std::cout << readOnlyArr[5] << std::endl; // This should throw an exception
 	} catch (const std::exception &e)
 	{
-		std::cerr << "Caught exception: " << e.what() << std::endl;
+		std::cerr << RED << "Caught exception: " << e.what() << RESET << std::endl;
 	}
 
 }
 
+/**
+ * Tests the Array class with an array of integers.
+ *
+ * This test initializes an array of 5 elements, assigns each element a value
+ * from 1 to 5, and prints out the array to verify that the elements are
+ * properly stored and retrieved.
+ */
 void testIntArray()
 {
 	SEPARATOR("Array<int> test");
@@ -140,10 +185,17 @@ void testIntArray()
 	for (unsigned int i = 0; i < arr.size(); ++i)
 		arr[i] = i + 1;
 
-	std::cout << "Array of integers:\n";
+	std::cout << BYEL << "Array of integers:\n" << RESET;
 	std::cout << arr;
 }
 
+/**
+ * Tests the Array class with an array of strings.
+ *
+ * This test initializes an array of 3 elements, assigns each element a string
+ * value, and prints out the array to verify that the elements are properly
+ * stored and retrieved.
+ */
 void testStringArray()
 {
 	SEPARATOR("Array<std::string> test");
@@ -152,10 +204,17 @@ void testStringArray()
 	strs[1] = "Template";
 	strs[2] = "World";
 
-	std::cout << "Array of strings:\n";
+	std::cout << BYEL << "Array of strings:\n" << RESET;
 	std::cout << strs;
 }
 
+/**
+ * testEmptyArray tests the Array class with an empty array.
+ *
+ * This test initializes an empty array and verifies that its size is 0.
+ * It then attempts to access an element in the array, which should throw
+ * an exception.
+ */
 void testEmptyArray()
 {
 	SEPARATOR("Empty array test");
@@ -165,10 +224,17 @@ void testEmptyArray()
 	{
 		std::cout << empty[0];
 	} catch (const std::exception &e) {
-		std::cerr << "Caught exception: " << e.what() << std::endl;
+		std::cerr << RED << "Caught exception: " << e.what() << RESET << std::endl;
 	}
 }
 
+/**
+ * testOutOfBounds tests the Array class with an out of bounds access.
+ *
+ * This test initializes an array of 2 elements, assigns each element an integer
+ * value, and attempts to access an element at index 10, which should throw
+ * an exception.
+ */
 void testOutOfBounds()
 {
 	SEPARATOR("Out of bounds access");
@@ -182,10 +248,17 @@ void testOutOfBounds()
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Caught exception: " << e.what() << std::endl;
+		std::cerr << RED << "Caught exception: " << e.what() << RESET << std::endl;
 	}
 }
 
+/**
+ * Tests the Array class with a large array.
+ *
+ * This test initializes an array with 100,000 elements, assigns each element
+ * its index value, and prints the first and last 5 elements to verify that
+ * the array is properly populated and accessed.
+ */
 void testLargeArray()
 {
 	SEPARATOR("Large array test (100000 elements)");
@@ -195,13 +268,21 @@ void testLargeArray()
 
 	std::cout << "First 5 elements:\n";
 	for (unsigned int i = 0; i < 5; ++i)
-		std::cout << large[i] << " ";
+		std::cout << BYEL << large[i] << " " << RESET;
 	std::cout << "\nLast 5 elements:\n";
 	for (unsigned int i = large.size() - 5; i < large.size(); ++i)
-		std::cout << large[i] << " ";
+		std::cout << BBLU << large[i] << " " << RESET;
 	std::cout << std::endl;
 }
 
+/**
+ * Tests copy construction and assignment of empty arrays.
+ *
+ * This test creates an empty array and verifies that a copy
+ * constructor and an assignment operator can correctly handle
+ * empty arrays without errors. It checks that the sizes of the
+ * original, copied, and assigned arrays remain zero.
+ */
 void testEmptyArrayCopyAssign()
 {
 	SEPARATOR("Copy and assign empty arrays test");
@@ -210,9 +291,12 @@ void testEmptyArrayCopyAssign()
 	Array<int> empty3;
 	empty3 = empty1;
 
-	std::cout << "Empty1 size: " << empty1.size() << std::endl;
-	std::cout << "Empty2 size (copy): " << empty2.size() << std::endl;
-	std::cout << "Empty3 size (assigned): " << empty3.size() << std::endl;
+	std::cout << "Empty1 size: " << YEL
+			<< empty1.size() << RESET << std::endl;
+	std::cout << "Empty2 size (copy): " << YEL
+			<< empty2.size() << RESET << std::endl;
+	std::cout << "Empty3 size (assigned): " << YEL
+			<< empty3.size() << RESET << std::endl;
 }
 
 struct NoDefault
@@ -222,6 +306,17 @@ struct NoDefault
 
 };
 
+/**
+ * Tests the Array class with a custom type that does not have a default
+ * constructor. This is a negative test and should not compile if uncommented.
+ *
+ * This test is intentionally empty because Array requires
+ * T to be default-constructible for construction with size n.
+ *
+ * Uncommenting the following line will cause compilation error:
+ *
+ * Array<NoDefault> arr(3);
+ */
 void testCustomType()
 {
 	SEPARATOR("Custom type (no default constructor) test");
@@ -233,6 +328,16 @@ void testCustomType()
 	// Array<NoDefault> arr(3);
 }
 
+/**
+ * Const correctness test.
+ *
+ * This test verifies that the Array class is const correct.
+ *
+ * It creates a non-const array, copies it to a const array, and verifies that
+ * the contents of the const array cannot be modified. It also verifies that
+ * attempting to access a non-existent element of the const array throws an
+ * exception.
+ */
 void testConstCorrectness()
 {
 	SEPARATOR("Const correctness test");
@@ -248,10 +353,12 @@ void testConstCorrectness()
 
 	try
 	{
-		std::cout << "Accessing const array element: " << constArr[1] << std::endl;
+		std::cout << YEL << "Accessing const array element: "
+		<< RESET << constArr[1] << std::endl;
 	}
 	catch (const std::exception &e)
 	{
-		std::cerr << "Caught exception: " << e.what() << std::endl;
+		std::cerr << RED << "Caught exception: "
+		<< e.what() << RESET<< std::endl;
 	}
 }
