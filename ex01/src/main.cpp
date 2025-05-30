@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:33:55 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/26 16:57:41 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/05/30 21:18:49 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,20 @@
 								 << "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" RESET "\n" \
 								 << std::endl;
 
+/**
+ * main tests the iter function with arrays of different types.
+ *
+ * This tests that the iter function works correctly with the following types:
+ *   - int
+ *   - float
+ *   - std::string
+ *
+ * The iter function is used to print each element of the array using the
+ * printElementOfArray function.
+ *
+ * The program prints out the results of the tests and exits with a return code
+ * of 0.
+ */
 int main()
 {
 	std::cout << BGRN "\n\n📋===== FUNCTIONS W/TEMPLATES =====📋\n\n" RESET;

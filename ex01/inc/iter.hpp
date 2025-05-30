@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 10:42:57 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/26 15:39:43 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/05/30 21:18:01 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 #include <string>
 #include "ansi.h"
 
+/**
+ * Applies a given function to each element of an array.
+ *
+ * @tparam T The type of the elements in the array.
+ * @param array A pointer to the first element of the array.
+ * @param size The number of elements in the array.
+ * @param f A function pointer that takes a constant reference to an element of type T and returns void.
+ */
 template <typename T>
 void iter(T *array, const size_t size, void (*f)(const T &))
 {
@@ -23,6 +31,11 @@ void iter(T *array, const size_t size, void (*f)(const T &))
 		(*f)(array[i]);
 }
 
+/**
+ * Prints a given element of an array to the standard output.
+ *
+ * @param element A constant reference to the element to print.
+ */
 template <typename T>
 void printElementOfArray(const T &element)
 {
