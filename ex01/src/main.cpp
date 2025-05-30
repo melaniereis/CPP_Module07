@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:33:55 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/26 15:39:00 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/05/26 16:57:41 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,9 @@
 								 << "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" RESET "\n" \
 								 << std::endl;
 
-// Functions Prototype
-void test_subject_case();
-
 int main()
 {
-	std::cout << BGRN "\n\n📋===== SWAP, MIN, MAX W/TEMPLATES =====📋\n\n" RESET;
+	std::cout << BGRN "\n\n📋===== FUNCTIONS W/TEMPLATES =====📋\n\n" RESET;
 
 	SEPARATOR("Test with int array")
 	int intArray[] = {1, 2, 3, 4, 5};

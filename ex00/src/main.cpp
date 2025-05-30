@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:33:55 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/24 08:07:36 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/05/30 21:16:18 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,36 @@
 << "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" RESET "\n" << std::endl;
 
 //Functions Prototype
-void test_subject_case();
-void test_int();
-void test_string();
-void test_double();
-void test_char();
+void TestSubjectCase();
+void TestInt();
+void TestString();
+void TestDouble();
+void TestChar();
 
+/**
+ * main tests the swap, min, and max functions with various types.
+ *
+ * This tests that the functions work correctly with the following types:
+ *   - int
+ *   - const char *
+ *   - double
+ *   - char
+ *
+ * Additionally, a commented out section tests that the functions do not work
+ * with mixed types.
+ *
+ * The program prints out the results of the tests and exits with a return code
+ * of 0.
+ */
 int main()
 {
 	std::cout << BGRN "\n\n📋===== SWAP, MIN, MAX W/TEMPLATES =====📋\n\n" RESET;
 
-	test_subject_case();
-	test_int();
-	test_string();
-	test_double();
-	test_char();
+	TestSubjectCase();
+	TestInt();
+	TestString();
+	TestDouble();
+	TestChar();
 
 	SEPARATOR("MIXED TYPE TEST (COMMENTED)")
 	/*
@@ -47,7 +62,15 @@ int main()
 	return 0;
 }
 
-void test_subject_case()
+/**
+ * Test the min and max functions with the subject's test case
+ *
+ * This function tests the min and max functions with the test case provided by
+ * the subject. This test case involves two int variables and two std::string
+ * variables. The test case checks that the functions work correctly with both
+ * arguments being greater than, less than, or equal to each other.
+ */
+void TestSubjectCase()
 {
 	SEPARATOR("SUBJECT TEST")
 
@@ -68,7 +91,14 @@ void test_subject_case()
 	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 }
 
-void test_int()
+/**
+ * Tests the min and max functions with int arguments
+ *
+ * This tests that the min and max functions work correctly with int arguments.
+ * The test case tests that the functions work correctly with both arguments
+ * being greater than, less than, or equal to each other.
+ */
+void TestInt()
 {
 	SEPARATOR("INT TEST")
 
@@ -82,7 +112,15 @@ void test_int()
 	std::cout << BMAG "max(a, b): " RESET << max(a, b) << std::endl;
 }
 
-void test_string()
+/**
+ * @brief Tests the min and max functions with std::string objects.
+ *
+ * @details
+ * This test creates two strings, swaps them, and then prints out the
+ * minimum and maximum of the two strings. The minimum and maximum
+ * are determined by the lexicographical order of the strings.
+ */
+void TestString()
 {
 	SEPARATOR("STRING TEST")
 
@@ -96,7 +134,15 @@ void test_string()
 	std::cout << BMAG "max(s1, s2): " RESET << max(s1, s2) << std::endl;
 }
 
-void test_double()
+/**
+ * TestDouble tests the swap and min/max functions with double values.
+ *
+ * This tests swapping two double values and getting the minimum and maximum
+ * values. The test shows that the swap function can be used with double values
+ * and that the min and max functions can be used to get the minimum and maximum
+ * of two double values.
+ */
+void TestDouble()
 {
 	SEPARATOR("DOUBLE TEST")
 
@@ -110,7 +156,13 @@ void test_double()
 	std::cout << BMAG "max(x, y): " RESET << max(x, y) << std::endl;
 }
 
-void test_char()
+/**
+ * TestChar performs a series of operations on two char variables.
+ * It swaps the values of the characters, prints the results,
+ * and then determines and prints the minimum and maximum values
+ * between the two characters.
+ */
+void TestChar()
 {
 	SEPARATOR("CHAR TEST")
 
