@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 10:42:57 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/31 11:57:05 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/06/06 21:15:34 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,22 @@
  *
  * @tparam T The type of the elements in the array.
  * @param array A pointer to the first element of the array.
- * @param size The number of elements in the array.
+ * @param size The number of elements in the array. Must not exceed the actual array size.
  * @param f A function pointer that takes a constant reference to an element of type T and returns void.
+ * @warning Undefined behavior if `size` exceeds the actual array size.
  */
 template <typename T>
 void iter(T *array, const size_t size, void (*f)(const T &))
 {
-	for (size_t i = 0; i < size; i++)
+	if (!array || size == 0 || !f)
+	{
+		std::cerr << RED << "Error: Invalid array, size, or function pointer." << RESET << std::endl;
+		return;
+	}
+	for (size_t i = 0; i < size; ++i)
+	{
 		(*f)(array[i]);
+	}
 }
 
 /**
@@ -36,14 +44,22 @@ void iter(T *array, const size_t size, void (*f)(const T &))
  *
  * @tparam T The type of the elements in the array.
  * @param array A pointer to the first element of the array.
- * @param size The number of elements in the array.
+ * @param size The number of elements in the array. Must not exceed the actual array size.
  * @param f A function pointer that takes a reference to an element of type T and returns void.
+ * @warning Undefined behavior if `size` exceeds the actual array size.
  */
 template <typename T>
 void iter(T *array, const size_t size, void (*f)(T &))
 {
-	for (size_t i = 0; i < size; i++)
+	if (!array || size == 0 || !f)
+	{
+		std::cerr << RED << "Error: Invalid array, size, or function pointer." << RESET << std::endl;
+		return;
+	}
+	for (size_t i = 0; i < size; ++i)
+	{
 		(*f)(array[i]);
+	}
 }
 
 /**
