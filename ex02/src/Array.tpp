@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 15:59:16 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/30 21:22:52 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/06/07 10:27:39 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
  */
 template <typename T>
 Array<T>::Array() : _data(0), _size(0)
-{}
+{
+}
 
 /**
  * Constructor that initializes an array with the specified size.
@@ -48,6 +49,7 @@ template <typename T>
 Array<T>::Array(const Array &other)
 {
 	_data = 0; // Initialize _data to avoid dangling pointer
+	_size = 0; // Initialize _size to avoid undefined behavior
 	*this = other;
 }
 
@@ -82,7 +84,7 @@ Array<T> &Array<T>::operator=(const Array &other)
 			_size = other.size();
 			_data = ((_size == 0) ? 0 : new T[_size]());
 			for (unsigned int i = 0; i < _size; ++i)
-			_data[i] = other[i];
+				_data[i] = other[i];
 		}
 	}
 	return *this;
@@ -129,7 +131,7 @@ const T &Array<T>::operator[](unsigned int index) const
  * @return A C-style string with the error message.
  */
 template <typename T>
-const char* Array<T>::IndexOutOfBoundsException::what() const throw()
+const char *Array<T>::IndexOutOfBoundsException::what() const throw()
 {
 	return "Index out of bounds";
 }
@@ -142,7 +144,7 @@ const char* Array<T>::IndexOutOfBoundsException::what() const throw()
  * @return A C-style string with the error message.
  */
 template <typename T>
-const char* Array<T>::EmptyArrayException::what() const throw()
+const char *Array<T>::EmptyArrayException::what() const throw()
 {
 	return "Array is empty";
 }
@@ -169,8 +171,8 @@ unsigned int Array<T>::size() const
 template <typename T>
 std::ostream &operator<<(std::ostream &os, const Array<T> &array)
 {
-	os << GRN << "📋 Array size: "  << RESET << array.size()
-		<< MAG << "\nElements: " << RESET;
+	os << GRN << "📋 Array size: " << RESET << array.size()
+	   << MAG << "\nElements: " << RESET;
 	for (unsigned int i = 0; i < array.size(); ++i)
 		os << array[i] << " ";
 	os << std::endl;
