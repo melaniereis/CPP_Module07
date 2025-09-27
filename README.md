@@ -757,6 +757,6 @@ After mastering Module 07, you'll be ready to tackle:
 
 *"Templates are not just about code reuse, they're about expressing algorithms independently of data types."*
 
-**Module 07 Complete** ✨ | **Previous**: [← Module 06](../CPP_Module06/README.md) | **Next**: [Module 08 →](../CPP_Module08/README.md)
+**Module 07 Complete** ✨ | **Previous**: [← Module 06](https://github.com/melaniereis/CPP_Module06/) | **Next**: [Module 08 →](https://github.com/melaniereis/CPP_Module08/)
 
 </div>
